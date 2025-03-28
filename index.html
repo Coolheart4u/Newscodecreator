@@ -52,8 +52,9 @@
                 const metaMatches = pageContent.match(/<meta[^>]+property="og:image"[^>]+content="([^"]+)"/);
                 if (metaMatches) imgUrl = metaMatches[1];
 
-                // Get today's date
-                const today = new Date().toLocaleDateString("en-GB");
+                // Get today's date in "01 March 2025" format
+                const today = new Date();
+                const formattedDate = `${today.getDate()} ${today.toLocaleString('en-GB', { month: 'long' })} ${today.getFullYear()}`;
 
                 // Generate the output code
                 const generatedHTML = `
@@ -62,7 +63,7 @@
                     <a href="${url}" target="_blank">
                         <img src="${imgUrl}" alt="News Image">
                         <p>${title}</p>
-                        <p>Uploaded: ${today}</p>
+                        <p>Uploaded: ${formattedDate}</p>
                     </a>
                 </div>`;
 
