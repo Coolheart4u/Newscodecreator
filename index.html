@@ -19,6 +19,7 @@
     <label>News Page URL:</label>
     <input type="text" id="newsUrl" placeholder="Enter news page URL">
     <button onclick="fetchNewsInfo()">Fetch Info</button>
+    <button onclick="clearResults()">Clear Results</button> <!-- New Clear Button -->
 
     <h3>Generated Code:</h3>
     <textarea id="generatedCode" readonly></textarea>
@@ -81,6 +82,12 @@
             textArea.select();
             document.execCommand("copy");
             alert("Code copied to clipboard!");
+        }
+
+        function clearResults() {
+            document.getElementById("newsUrl").value = ""; // Clears input field
+            document.getElementById("generatedCode").value = ""; // Clears textarea
+            document.getElementById("preview").innerHTML = ""; // Clears preview
         }
     </script>
 
